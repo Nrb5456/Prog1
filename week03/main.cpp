@@ -4,13 +4,14 @@ class B1 {
  	public:
    		virtual void vf(){ cout << "B1::vf()\n"; }
    		void f(){ cout << "B1::f()\n"; }
-   		virtual void pvf(){ cout << "B1::pvf()\n"; }	//5.feladat:
+   		virtual void pvf(){ cout << "B1::pvf()\n"; }	//5.feladat: ezt is felulirta a D1-ben levo pfv()
 };
 
 class D1:public B1 {
     public:
     	void vf() override { cout << "D1::vf()\n"; }
-    	void f() { cout << "D1::f()\n"; }		// 4.feladat: ez nem irja felul a B1::f()-et
+    	void f() { cout << "D1::f()\n"; }		//4.feladat: ez is felulirja a B1::f()-et
+    	void pvf() { cout << "D1::pvf()\n"; }
 };
 
 class D2:public D1 {
@@ -23,19 +24,17 @@ class B2 {
 		virtual void pvf() = 0;
 };
 
-class D21 : public B2
-{
+class D21 : public B2{
 	public:
 		string text; 
 		void pvf() override { cout << text << endl; }
 };
 
-class D22 : public B2
-{
+class D22 : public B2{
 	public:
 		int n; 
 		void pvf() override { cout << n << endl; }
-		void f(B2& b2) { b2.pvf(); }  
+		void f(B2& b) { b.pvf(); }  
 };
     	
 
@@ -98,15 +97,16 @@ int main(){
 	d2.f();
 	d2.pvf();*/
 
+	
 	//7.feladat
 	D21 d21;
-	//d21.text = "Something";
+	d21.text = "Something";
 
 	D22 d22;
-	//d22.f = 15;
+	d22.n = 15;
 
-	d21.f();
-	d22.f();
+	d22.f(d21);
+	d22.f(d22);
 
 	return 0;
 }
