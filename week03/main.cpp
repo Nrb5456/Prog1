@@ -4,7 +4,7 @@ class B1 {
  	public:
    		virtual void vf(){ cout << "B1::vf()\n"; }
    		void f(){ cout << "B1::f()\n"; }
-   		virtual void pvf(){ cout << "B1::pvf()\n"; }	//5.feladat: a D1 es a B1& is a B1:pvf()-etirja ki
+   		virtual void pvf() = 0;	//5.feladat: nem lehet compileolni
 };
 
 class D1:public B1 {
