@@ -4,14 +4,13 @@ class B1 {
  	public:
    		virtual void vf(){ cout << "B1::vf()\n"; }
    		void f(){ cout << "B1::f()\n"; }
-   		virtual void pvf(){ cout << "B1::pvf()\n"; }	//5.feladat: ezt is felulirta a D1-ben levo pfv()
+   		virtual void pvf(){ cout << "B1::pvf()\n"; }	//5.feladat: a D1 es a B1& is a B1:pvf()-etirja ki
 };
 
 class D1:public B1 {
     public:
     	void vf() override { cout << "D1::vf()\n"; }
-    	void f() { cout << "D1::f()\n"; }		//4.feladat: ez is felulirja a B1::f()-et
-    	void pvf() { cout << "D1::pvf()\n"; }
+    	void f() { cout << "D1::f()\n"; }		//4.feladat: ez nem irja felul a B1::f()-et
 };
 
 class D2:public D1 {
