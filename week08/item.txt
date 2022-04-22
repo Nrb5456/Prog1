@@ -1,0 +1,10 @@
+Jani 1 2.9
+Gipsz 9 8.5
+Jakab 4 5.1
+Alma 12 4
+Valaki 5 9.99
+Korte 7 10.1
+Szilva 20 15.15
+Eper 45 8.4
+Barack 2 2.45
+Narancs 6 9.4
